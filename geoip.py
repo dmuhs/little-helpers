@@ -5,6 +5,8 @@ import urllib.request
 import json
 import sys
 
+from ipaddress import ip_address
+
 
 def get_data(ip):
     url = "http://geoip.nekudo.com/api/{}".format(ip)
@@ -23,9 +25,20 @@ def get_data(ip):
     return data
 
 
+def ip_is_valid(ip):
+    try:
+        ip_address(ip)
+        return True
+    except:
+        return False
+
+
 @click.command()
 @click.argument('ip', default='')
 def lookup(ip):
+    if not ip_is_valid(ip):
+        click.echo('Please enter a valid IPv4 or IPv6 address!')
+        sys.exit(1)
     data = get_data(ip)
     output = ("=== Lookup for {ip} ===\n"
               "Geolocation: {city}, {country} ({code})\n"
