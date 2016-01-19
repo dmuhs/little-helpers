@@ -27,8 +27,8 @@ def get_data(ip):
 
 def ip_is_valid(ip):
     try:
-        ip_address(ip)
-        return True
+        if ip == '' or ip_address(ip):
+            return True
     except:
         return False
 
