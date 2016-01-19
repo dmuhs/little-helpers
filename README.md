@@ -1,4 +1,4 @@
-# little-helpers
+# Little Helpers
 Some small helper scripts I hacked up in my day to day business.
 
 ## Requirements
