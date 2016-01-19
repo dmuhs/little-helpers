@@ -20,3 +20,6 @@ ecffc300d8a3
 c7ed3897180f
 7f59c19a3e50
 ```
+
+### url-size.py
+Displays the size of a given URL based on its Content-Length in a human-readable format. Especially useful when you're stuck with a bad download rate, need to estimate dependency downloads and the build tool only provides you with resource links.
